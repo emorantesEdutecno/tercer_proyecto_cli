@@ -7,9 +7,9 @@
 
         <div id="contenedorPadre">
             <div class="contenedorImagenes" v-for="(imagen,index) in images_src" v-bind:key="imagen">
-            <img  v-bind:src="imagen" alt="imagen del padre">
-            <button v-on:click="eliminar(index)">Eliminar</button>
-        </div>
+                    <img  v-bind:src="imagen" alt="imagen del padre">
+                    <button v-on:click="eliminar(index)">Eliminar</button>
+            </div>
 
         </div>
 
