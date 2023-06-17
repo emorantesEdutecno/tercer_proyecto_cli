@@ -4,7 +4,16 @@
         <button v-on:click="saludar"> Saludo</button>
         <hr>
         <h2> {{  title  }}</h2>
-        <img v-for="imagen in images_src" v-bind:key="imagen" v-bind:src="imagen" alt="imagen del padre">
+
+        <div id="contenedorPadre">
+            <div class="contenedorImagenes" v-for="(imagen,index) in images_src" v-bind:key="imagen">
+            <img  v-bind:src="imagen" alt="imagen del padre">
+            <button v-on:click="eliminar(index)">Eliminar</button>
+        </div>
+
+        </div>
+
+
 
         <hr>
         <form>
@@ -41,6 +50,9 @@ export default{
         agregar: function(){
             this.$emit('add', this.newImage);
         },
+        eliminar: function(indice){
+            this.$emit('delete', indice);
+        },
     }
 }
 </script>
@@ -48,13 +60,22 @@ export default{
 <style scoped>
 img{
     border-radius: 50%;
-    width: 20%;
+    width: 100%;
     border: 3px solid blue;
-    display: inline-block;
+
 }
 
 #GalleryComponent3{
     background-color: lightcoral;
     color: bisque;
+}
+
+.contenedorImagenes{
+    width: 30%;
+    display: inline-block;
+}
+
+#contenedorPadre{
+
 }
 </style>

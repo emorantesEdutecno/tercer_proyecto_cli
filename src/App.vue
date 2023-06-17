@@ -3,7 +3,7 @@
     <h3>El logo es parte del componente padre</h3>
     <img alt="Vue logo" src="./assets/logo.png">
 
-    
+
     <GalleryComponent 
       title="Mensaje enviado desde el padre"
       v-bind:images_src = "arregloImagenes"
@@ -25,6 +25,7 @@
       title="Gallery Component Version 3"
       v-bind:images_src = "arregloImagenes3"
       v-on:add ="agregarImagen"
+      v-on:delete="eliminarImagen"
     />
 
   </div>
@@ -64,6 +65,9 @@ export default {
   methods:{
     agregarImagen: function(src){
       this.arregloImagenes3.push(src);
+    },
+    eliminarImagen: function(indice){
+      this.arregloImagenes3.splice(indice,1);
     },
   }
 }
